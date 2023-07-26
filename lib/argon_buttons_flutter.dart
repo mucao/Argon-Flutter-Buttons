@@ -68,8 +68,7 @@ class ArgonButton extends StatefulWidget {
       this.disabledElevation,
       this.disabledColor,
       this.disabledTextColor})
-      : assert(elevation == null || elevation >= 0.0),
-        assert(focusElevation == null || focusElevation >= 0.0),
+      : assert(focusElevation == null || focusElevation >= 0.0),
         assert(hoverElevation == null || hoverElevation >= 0.0),
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
@@ -255,8 +254,7 @@ class ArgonTimerButton extends StatefulWidget {
       this.disabledColor,
       this.disabledTextColor,
       this.initialTimer: 0})
-      : assert(elevation == null || elevation >= 0.0),
-        assert(focusElevation == null || focusElevation >= 0.0),
+      : assert(focusElevation == null || focusElevation >= 0.0),
         assert(hoverElevation == null || hoverElevation >= 0.0),
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
