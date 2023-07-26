@@ -174,10 +174,12 @@ class _ArgonButtonState extends State<ArgonButton>
         child: ElevatedButton(
             key: _buttonKey,
             style: ButtonStyle(
-              backgroundColor: widget.color,
+              backgroundColor: MaterialStateColor.resolveWith<Color>(
+                  (states) => widget.color),
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: widget.elevation,
-              padding: widget.padding,
+              elevation: MaterialStatePropertyAll(elevation),
+              padding: MaterialStateColor.resolveWith<EdgeInsets>(
+                  (states) => widget.padding),
             ),
             clipBehavior: widget.clipBehavior,
             focusNode: widget.focusNode,
@@ -400,10 +402,12 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
         child: ElevatedButton(
             key: _buttonKey,
             style: ButtonStyle(
-              backgroundColor: widget.color,
+              backgroundColor: MaterialStateColor.resolveWith<Color>(
+                  (states) => widget.color),
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: widget.elevation,
-              padding: widget.padding,
+              elevation: MaterialStatePropertyAll(elevation),
+              padding: MaterialStateColor.resolveWith<EdgeInsets>(
+                  (states) => widget.padding),
             ),
             clipBehavior: widget.clipBehavior,
             focusNode: widget.focusNode,
