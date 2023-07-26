@@ -17,17 +17,17 @@ class ArgonButton extends StatefulWidget {
   final Widget child;
   final Function(
       Function startLoading, Function stopLoading, ButtonState btnState)? onTap;
-  final Color? color;
+  final MaterialStateProperty<Color?>? color;
   final Color? focusColor;
   final Color? hoverColor;
   final Color? highlightColor;
   final Color? splashColor;
   final Brightness? colorBrightness;
-  final double? elevation;
+  final MaterialStateProperty<double?>? elevation;
   final double? focusElevation;
   final double? hoverElevation;
   final double? highlightElevation;
-  final EdgeInsetsGeometry padding;
+  final MaterialStateProperty<EdgeInsetsGeometry?>? padding;
   final Clip clipBehavior;
   final FocusNode? focusNode;
   final MaterialTapTargetSize? materialTapTargetSize;
@@ -174,12 +174,10 @@ class _ArgonButtonState extends State<ArgonButton>
         child: ElevatedButton(
             key: _buttonKey,
             style: ButtonStyle(
-              backgroundColor: MaterialStateColor.resolveWith<Color>(
-                  (states) => widget.color),
+              backgroundColor: widget.color,
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: MaterialStatePropertyAll(elevation),
-              padding: MaterialStateColor.resolveWith<EdgeInsets>(
-                  (states) => widget.padding),
+              elevation: elevation,
+              padding: widget.padding,
             ),
             clipBehavior: widget.clipBehavior,
             focusNode: widget.focusNode,
@@ -204,17 +202,17 @@ class ArgonTimerButton extends StatefulWidget {
   final Curve reverseCurve;
   final Widget child;
   final Function(Function startTimer, ButtonState? btnState)? onTap;
-  final Color? color;
+  final MaterialStateProperty<Color?>? color;
   final Color? focusColor;
   final Color? hoverColor;
   final Color? highlightColor;
   final Color? splashColor;
   final Brightness? colorBrightness;
-  final double? elevation;
+  final MaterialStateProperty<double?>? elevation;
   final double? focusElevation;
   final double? hoverElevation;
   final double? highlightElevation;
-  final EdgeInsetsGeometry padding;
+  final MaterialStateProperty<EdgeInsetsGeometry?>? padding;
   final Clip clipBehavior;
   final FocusNode? focusNode;
   final MaterialTapTargetSize? materialTapTargetSize;
@@ -400,14 +398,11 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
               : widget.borderRadius),
         ),
         child: ElevatedButton(
-            key: _buttonKey,
             style: ButtonStyle(
-              backgroundColor: MaterialStateColor.resolveWith<Color>(
-                  (states) => widget.color),
+              backgroundColor: widget.color,
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: MaterialStatePropertyAll(elevation),
-              padding: MaterialStateColor.resolveWith<EdgeInsets>(
-                  (states) => widget.padding),
+              elevation: elevation,
+              padding: widget.padding,
             ),
             clipBehavior: widget.clipBehavior,
             focusNode: widget.focusNode,
