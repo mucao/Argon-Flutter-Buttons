@@ -176,7 +176,7 @@ class _ArgonButtonState extends State<ArgonButton>
             style: ButtonStyle(
               backgroundColor: widget.color,
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: MaterialStateProperty.all(elevation),
+              elevation: MaterialStateProperty.all(widget.elevation),
               padding: widget.padding,
             ),
             clipBehavior: widget.clipBehavior,
@@ -401,7 +401,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
             style: ButtonStyle(
               backgroundColor: widget.color,
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: MaterialStateProperty.all(elevation),
+              elevation: MaterialStateProperty.all(widget.elevation),
               padding: widget.padding,
             ),
             clipBehavior: widget.clipBehavior,
