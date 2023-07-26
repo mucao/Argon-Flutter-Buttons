@@ -23,7 +23,7 @@ class ArgonButton extends StatefulWidget {
   final Color? highlightColor;
   final Color? splashColor;
   final Brightness? colorBrightness;
-  final MaterialStateProperty<double?>? elevation;
+  final double? elevation;
   final double? focusElevation;
   final double? hoverElevation;
   final double? highlightElevation;
@@ -70,6 +70,7 @@ class ArgonButton extends StatefulWidget {
       this.disabledTextColor})
       : assert(focusElevation == null || focusElevation >= 0.0),
         assert(hoverElevation == null || hoverElevation >= 0.0),
+        assert(elevation == null || elevation >= 0.0),
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
         assert(clipBehavior != null);
@@ -175,7 +176,7 @@ class _ArgonButtonState extends State<ArgonButton>
             style: ButtonStyle(
               backgroundColor: widget.color,
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: elevation,
+              elevation: MaterialStateProperty.all(elevation),
               padding: widget.padding,
             ),
             clipBehavior: widget.clipBehavior,
@@ -207,7 +208,7 @@ class ArgonTimerButton extends StatefulWidget {
   final Color? highlightColor;
   final Color? splashColor;
   final Brightness? colorBrightness;
-  final MaterialStateProperty<double?>? elevation;
+  final double? elevation;
   final double? focusElevation;
   final double? hoverElevation;
   final double? highlightElevation;
@@ -256,6 +257,7 @@ class ArgonTimerButton extends StatefulWidget {
       this.initialTimer: 0})
       : assert(focusElevation == null || focusElevation >= 0.0),
         assert(hoverElevation == null || hoverElevation >= 0.0),
+        assert(elevation == null || elevation >= 0.0),
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
         assert(clipBehavior != null);
@@ -399,7 +401,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
             style: ButtonStyle(
               backgroundColor: widget.color,
               tapTargetSize: widget.materialTapTargetSize,
-              elevation: elevation,
+              elevation: MaterialStateProperty.all(elevation),
               padding: widget.padding,
             ),
             clipBehavior: widget.clipBehavior,
