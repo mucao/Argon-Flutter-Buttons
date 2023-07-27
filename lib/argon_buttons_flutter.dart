@@ -405,10 +405,18 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
           clipBehavior: widget.clipBehavior,
           focusNode: widget.focusNode,
           onPressed: () {
-            widget.onTap!(() => animateForward(), () => animateReverse(), btn);
-            // btnClicked();
-          },
-          child: btn == ButtonState.Idle ? widget.child : widget.loader),
+              widget.onTap!((newCounter) => startTimer(newCounter), btn);
+            },
+            child: btn == ButtonState.Idle
+                ? widget.child
+                : StreamBuilder(
+                    stream: emptyStream,
+                    builder: (context, snapshot) {
+                      if (secondsLeft == 0) {
+                        animateReverse();
+                      }
+                      return widget.loader!(secondsLeft);
+                    })),
     );
   }
 }
