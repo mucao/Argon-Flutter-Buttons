@@ -405,7 +405,7 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
           clipBehavior: widget.clipBehavior,
           focusNode: widget.focusNode,
           onPressed: () {
-              widget.onTap!((newCounter) => startTimer(newCounter), btn);
+              widget.onTap!((newCounter) => startTimer(newCounter), btn); // added
             },
             child: btn == ButtonState.Idle
                 ? widget.child
