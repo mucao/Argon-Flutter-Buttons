@@ -387,7 +387,6 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
       height: widget.height,
       width: lerpWidth(widget.width, minWidth, _animation.value),
       child: ElevatedButton(
-          key: _buttonKey,
           style: ButtonStyle(
             shape: MaterialStateProperty.resolveWith(
               (states) => RoundedRectangleBorder(
