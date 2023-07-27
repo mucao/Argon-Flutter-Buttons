@@ -165,12 +165,14 @@ class _ArgonButtonState extends State<ArgonButton>
       child: ElevatedButton(
           key: _buttonKey,
           style: ButtonStyle(
-            shape: RoundedRectangleBorder(
-              side: widget.borderSide,
-              borderRadius: BorderRadius.circular(widget.roundLoadingShape
-                  ? lerpDouble(
-                      widget.borderRadius, widget.height / 2, _animation.value)!
-                  : widget.borderRadius),
+            shape: MaterialStateProperty.resolveWith(
+              (states) => RoundedRectangleBorder(
+                side: widget.borderSide,
+                borderRadius: BorderRadius.circular(widget.roundLoadingShape
+                    ? lerpDouble(widget.borderRadius, widget.height / 2,
+                        _animation.value)!
+                    : widget.borderRadius),
+              ),
             ),
             backgroundColor: widget.color,
             tapTargetSize: widget.materialTapTargetSize,
@@ -387,12 +389,14 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
       child: ElevatedButton(
           key: _buttonKey,
           style: ButtonStyle(
-            shape: RoundedRectangleBorder(
-              side: widget.borderSide,
-              borderRadius: BorderRadius.circular(widget.roundLoadingShape
-                  ? lerpDouble(
-                      widget.borderRadius, widget.height / 2, _animation.value)!
-                  : widget.borderRadius),
+            shape: MaterialStateProperty.resolveWith(
+              (states) => RoundedRectangleBorder(
+                side: widget.borderSide,
+                borderRadius: BorderRadius.circular(widget.roundLoadingShape
+                    ? lerpDouble(widget.borderRadius, widget.height / 2,
+                        _animation.value)!
+                    : widget.borderRadius),
+              ),
             ),
             backgroundColor: widget.color,
             tapTargetSize: widget.materialTapTargetSize,
