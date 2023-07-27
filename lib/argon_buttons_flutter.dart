@@ -162,32 +162,28 @@ class _ArgonButtonState extends State<ArgonButton>
     return Container(
       height: widget.height,
       width: lerpWidth(widget.width, minWidth, _animation.value),
-      child: ButtonTheme(
-        height: widget.height,
-        shape: RoundedRectangleBorder(
-          side: widget.borderSide,
-          borderRadius: BorderRadius.circular(widget.roundLoadingShape
-              ? lerpDouble(
-                  widget.borderRadius, widget.height / 2, _animation.value)!
-              : widget.borderRadius),
-        ),
-        child: ElevatedButton(
-            key: _buttonKey,
-            style: ButtonStyle(
-              backgroundColor: widget.color,
-              tapTargetSize: widget.materialTapTargetSize,
-              elevation: MaterialStateProperty.all(widget.elevation),
-              padding: widget.padding,
+      child: ElevatedButton(
+          key: _buttonKey,
+          style: ButtonStyle(
+            shape: RoundedRectangleBorder(
+              side: widget.borderSide,
+              borderRadius: BorderRadius.circular(widget.roundLoadingShape
+                  ? lerpDouble(
+                      widget.borderRadius, widget.height / 2, _animation.value)!
+                  : widget.borderRadius),
             ),
-            clipBehavior: widget.clipBehavior,
-            focusNode: widget.focusNode,
-            onPressed: () {
-              widget.onTap!(
-                  () => animateForward(), () => animateReverse(), btn);
-              // btnClicked();
-            },
-            child: btn == ButtonState.Idle ? widget.child : widget.loader),
-      ),
+            backgroundColor: widget.color,
+            tapTargetSize: widget.materialTapTargetSize,
+            elevation: MaterialStateProperty.all(widget.elevation),
+            padding: widget.padding,
+          ),
+          clipBehavior: widget.clipBehavior,
+          focusNode: widget.focusNode,
+          onPressed: () {
+            widget.onTap!(() => animateForward(), () => animateReverse(), btn);
+            // btnClicked();
+          },
+          child: btn == ButtonState.Idle ? widget.child : widget.loader),
     );
   }
 }
@@ -388,38 +384,28 @@ class _ArgonTimerButtonState extends State<ArgonTimerButton>
     return Container(
       height: widget.height,
       width: lerpWidth(widget.width, minWidth, _animation.value),
-      child: ButtonTheme(
-        height: widget.height,
-        shape: RoundedRectangleBorder(
-          side: widget.borderSide,
-          borderRadius: BorderRadius.circular(widget.roundLoadingShape
-              ? lerpDouble(
-                  widget.borderRadius, widget.height / 2, _animation.value)!
-              : widget.borderRadius),
-        ),
-        child: ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: widget.color,
-              tapTargetSize: widget.materialTapTargetSize,
-              elevation: MaterialStateProperty.all(widget.elevation),
-              padding: widget.padding,
+      child: ElevatedButton(
+          key: _buttonKey,
+          style: ButtonStyle(
+            shape: RoundedRectangleBorder(
+              side: widget.borderSide,
+              borderRadius: BorderRadius.circular(widget.roundLoadingShape
+                  ? lerpDouble(
+                      widget.borderRadius, widget.height / 2, _animation.value)!
+                  : widget.borderRadius),
             ),
-            clipBehavior: widget.clipBehavior,
-            focusNode: widget.focusNode,
-            onPressed: () {
-              widget.onTap!((newCounter) => startTimer(newCounter), btn);
-            },
-            child: btn == ButtonState.Idle
-                ? widget.child
-                : StreamBuilder(
-                    stream: emptyStream,
-                    builder: (context, snapshot) {
-                      if (secondsLeft == 0) {
-                        animateReverse();
-                      }
-                      return widget.loader!(secondsLeft);
-                    })),
-      ),
+            backgroundColor: widget.color,
+            tapTargetSize: widget.materialTapTargetSize,
+            elevation: MaterialStateProperty.all(widget.elevation),
+            padding: widget.padding,
+          ),
+          clipBehavior: widget.clipBehavior,
+          focusNode: widget.focusNode,
+          onPressed: () {
+            widget.onTap!(() => animateForward(), () => animateReverse(), btn);
+            // btnClicked();
+          },
+          child: btn == ButtonState.Idle ? widget.child : widget.loader),
     );
   }
 }
